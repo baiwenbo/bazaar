@@ -1,16 +1,10 @@
 package com.strive.bazaar.entity;
 
-import lombok.Data;
-import lombok.ToString;
-
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
-@Data
-@ToString
+
 @Entity
-@Table
-public class SysRole implements Serializable {
+public class SysRole {
     @Id
     @GeneratedValue
     private Integer id; // 编号
@@ -28,5 +22,51 @@ public class SysRole implements Serializable {
     @JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="uid")})
     private List<UserInfo> userInfos;// 一个角色对应多个用户
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
+    public List<SysPermission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<SysPermission> permissions) {
+        this.permissions = permissions;
+    }
+
+    public List<UserInfo> getUserInfos() {
+        return userInfos;
+    }
+
+    public void setUserInfos(List<UserInfo> userInfos) {
+        this.userInfos = userInfos;
+    }
 }

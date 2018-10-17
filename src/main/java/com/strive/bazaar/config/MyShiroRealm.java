@@ -17,10 +17,8 @@ import org.apache.shiro.util.ByteSource;
 import javax.annotation.Resource;
 
 public class MyShiroRealm extends AuthorizingRealm {
-
     @Resource
     private UserInfoService userInfoService;
-
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         System.out.println("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
